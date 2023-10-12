@@ -5,6 +5,8 @@
   align-items: center;
   min-height: 100vh;
   padding: 4rem 0;
+  background-image: url('/Indonesia tpl Background.JPG');
+  background-size: cover;
 }
 
 .title {
@@ -20,3 +22,4 @@
 .title a:hover, .title a:focus, .title a:active {
   text-decoration: underline;
 }
+

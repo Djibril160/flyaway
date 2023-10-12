@@ -1,12 +1,12 @@
 import styles from '../styles/Home.module.css';
 import React, { useState } from 'react';
-import { DownloadOutlined } from '@ant-design/icons';
-import { Button, Radio, Space, Divider } from 'antd';
+import { DownloadOutlined, UserOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Button, Radio, Space, Divider, Input, Card } from 'antd';
 
 
 function Home() {
   const [size, setSize] = useState('large'); // default is 'middle'
-
+  const [passwordVisible, setPasswordVisible] = React.useState(false);
 
   return (
     <div>
@@ -14,12 +14,40 @@ function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">My World!</a>
         </h1>
-        <Space wrap>
-          <Button type="primary">Button</Button>
-          <Button type="primary" icon={<DownloadOutlined />} size={size}>
-            Download
-          </Button>
-        </Space>  
+        <Card
+          style={{
+            width: 300,
+          }}
+          className='card-login'>
+          <Space direction="vertical" >
+            <Input 
+              className='w-100 text-center' 
+              size="large" 
+              placeholder="Username" 
+              prefix={<UserOutlined />} />
+              <Space direction="horizontal">
+                <Input.Password
+                  className='w-100 text-center'
+                  size="large"
+                  placeholder="Password"
+                  visibilityToggle={{
+                    visible: passwordVisible,
+                    onVisibleChange: setPasswordVisible,
+                  }}
+                />
+                <Button
+                  style={{
+                    width: 80,
+                  }}
+                  size="large"
+                  onClick={() => setPasswordVisible((prevState) => !prevState)}
+                >
+                  {passwordVisible ? 'Hide' : 'Show'}
+                </Button>
+            </Space>
+          </Space>
+        </Card>
+        
       </main>
     </div>
   );
