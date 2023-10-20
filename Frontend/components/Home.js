@@ -12,11 +12,11 @@ function Home() {
     <div>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">My World!</a>
+          Welcome to My World!
         </h1>
         <Card
           style={{
-            width: 300,
+            width: 400,
           }}
           className='card-login'>
           <Space direction="vertical" >
